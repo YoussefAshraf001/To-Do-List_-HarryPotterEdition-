@@ -1,13 +1,194 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;500&display=swap');
+
+
+* {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background: url('./Assets/background.jpg') no-repeat center fixed;
+  color: white;
+  width: 400px;
+  padding-top: 17rem;
+  margin: 0 auto;
+}
+
+.page-title{
+  font-size: 40px;
+  text-transform: uppercase;
+  text-shadow: -2px 2px 2px black;
+}
+
+label {
+  text-align: center;
+}
+
+.new-item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+
+/* Add Button */
+.btn-add {
+  background: #2BBAC3;
+  border: 1px solid #2BBAC3;
+  color: white;
+  letter-spacing: 3px;
+  width: 150px;
+  margin-left: 62.5%;
+  padding: 0.25em 0.5em;
+  border-radius: 25em;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: hsl(200, 100%, 50%, 0.2);
+}
+
+
+/* Delete Button */
+.btn.btn-danger {
+  background: black;
+  padding: 1% 4% 1.5% 4%;
+  border: 1px solid rgb(255, 0, 0);
+  margin-right: 2px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn.btn-danger:hover,
+.btn.btn-danger:focus-visible {
+  background: black;
+  color: hsl(0, 100%, 40%);
+  animation: glow 0.2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -5px #ff0000;
+  }
+  to {
+    box-shadow: 0 0 10px 5px #ff0000;
+  }
+}
+
+.new-item-form input {
+  outline: none;
+  border: solid white;
+  background: white;
+  border-radius: 25em;
+  padding: 0.25em 0.5em;
+  color: black;
+  text-align: center;
+}
+
+::placeholder {
+  text-transform: uppercase;
+}
+
+.header {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  margin-left: 1.5rem;
+  list-style: none;
+}
+
+.list li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  column-count: 3;
+  column-gap: 40px;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px black solid;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #002B4E;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 6px;
+  top: 3px;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(35deg);
+  -ms-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.container:checked{
+  text-decoration: line-through;
 }
